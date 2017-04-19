@@ -70,7 +70,7 @@ else
 <?php
 }
 ?>
-
+<!-- ____the following code is used to post comments on a video___ -->
 <form action="" method ="post">
 	Comment : <textarea name="comment" rows="6" cols="50"></textarea>
 	<input type="submit" name="submit">
@@ -91,5 +91,44 @@ echo '<center> Comment Successfully Submitted </center>';
 }
 
  ?>
+
+ <?php # Loads all the media available.
+ 	$result = load_comments($id) ;
+ ?>
+
+     <h4>Comments</h4>
+     <table id="top_row" width="50%" cellpadding="5" cellspacing="10">
+ 	<tr valign="top">
+ 	<td>User</td><td>Comment</td><td>timestamp</td>
+ 	</tr>
+
+ 	</table>
+ 	<table width="50%" cellpadding="5" cellspacing="10" border="2" bordercolor="#895803">
+ 		<?php
+ 			while ($result_row = mysqli_fetch_row($result)) //filename, username, type, mediaid, path
+ 			{
+ 				$username = $result_row[0]; // was 3
+ 				$comment = $result_row[1]; // was 0
+ 				$time = $result_row[2]; // was 4   // This seems correct!
+ 		?>
+     <tr valign="top">
+ 					<td>
+ 							<?php
+ 								echo $username;
+ 							?>
+ 					</td>
+ 		      <td>
+ 		        <?php echo $comment;?>
+					</td>
+					<td>
+						<?php echo $time;?>
+ 		      </td>
+ 		</tr>
+     <?php
+ 			}
+ 		?>
+ 	</table>
+    </div>
+
 </body>
 </html>
