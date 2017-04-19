@@ -1,0 +1,151 @@
+body {
+	margin: 0px ;
+	background-image: url(../images/bg/beige-background.jpg);
+	background-size: cover;
+}
+
+
+#view_messages{
+	width: auto;
+	align-items: right;
+	padding: 15px 20px;
+	border-radius: 4px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	margin: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	color: black;
+	font-size: 24px;
+	cursor: pointer;
+	text-shadow: 1px 2px white;
+	background: rgba(255,255,255,0.5) ;
+}
+
+
+.navigation{
+	list-style-type: none;
+	margin: 0 ;
+	padding-bottom: 2px ;
+	padding-top: 2px ;
+    align-content: center;
+	background-color: burlywood ;
+
+
+}
+ul {
+	position: relative;
+	left: 25% ;
+}
+li{
+	display: inline ;
+}
+
+#msg_prompt{
+	position: fixed ;
+	z-index:  1 ;
+	display:  none ;
+	left: 0 ;
+	top: 0 ;
+	width: 100% ;
+	height: 100% ;
+	overflow: auto ;
+	background-color: rgb(137, 88, 3, 0.5) ;
+	padding-top:100px ;
+}
+
+#msg_prompt_content{
+	background-color: antiquewhite ;
+	margin: 10% auto ;
+	padding: 25px ;
+	border: 1px groove #895803 ;
+	width: 40% ;
+	font-size: 24px ;
+}
+#msg_btn{
+	position: relative ;
+	left: 30%  ;
+}
+.close{
+	color:brown ;
+	float:right ;
+	font-weight:  bolder;
+	font-size: 28px  ;
+}
+
+h2{
+	text-align: center ;
+	font-size: 25px  ;
+	color: saddlebrown ;
+	text-shadow: 2px 2px  white ;
+
+}
+h4 {
+	font-size: 30px ;
+	position: relative ;
+	left: 150px ;
+	color: brown ;
+}
+
+h5 {
+	margin: 0px ;
+	padding: 10px;
+	color: saddlebrown;
+	background-color: burlywood;
+
+}
+.submit {
+	width: auto;
+	height: auto;
+	align-items: right;
+	left: 40px  ;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	margin: 10px;
+	margin-left: 380px ;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	color: white;
+	font-size: 24px;
+	cursor: pointer;
+	text-shadow: 2px 2px black;
+	background: rgba(69,69,69,0.8)
+}
+.submit:hover {
+	box-shadow: 0 12px 16px 0 rbga(0, 0, 0, 0, .24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	text-align: right;
+}
+
+#log_out_btn {
+	position: relative ;
+	left: 30% ;
+	width: auto;
+	align-items: left;
+	padding: 15px 20px;
+	border-radius: 4px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	margin: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	color: black;
+	font-size: 24px;
+	cursor: pointer;
+	text-shadow: 1px 2px white;
+	background: rgba(255,255,255,0.5) ;
+}
+#log_out_btn:hover {
+	box-shadow: 0 12px 16px 0 rbga(0, 0, 0, 0, .24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#logoutForm{
+	display: inline;
+	width: auto ;
+}
+
+td {
+	color: saddlebrown ;
+	font-size: 20px ;
+	text-align: center ;
+}
+
+table {
+	position: relative ;
+	left: 25% ;
+}
