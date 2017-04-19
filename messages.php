@@ -17,25 +17,13 @@
 <link rel="stylesheet" type="text/css" href="css/browse.css" />
 
 <script type="text/javascript" src="js/jquery-latest.pack.js"></script>
-<script type="text/javascript">
 
-function saveDownload(id)
-{
-	$.post("media_download_process.php",
-	{
-       id: id,
-	},
-	function(message)
-    { }
- 	);
-}
-</script>
 </head>
 
 <body>
 
 <div id="welcome">
-<h5>Welcome <?php echo $_SESSION['username'];?></h5>
+<h5>Here are your messages, <?php echo $_SESSION['username'];?></h5>
 </div>
 <nav class="navigation">
 
