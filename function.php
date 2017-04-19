@@ -180,7 +180,7 @@ function load_comments($id) {
 
 
 function load_messages($U_id) {
-	$query = "SELECT Sender, Message, TimeSt from Messages where receiver = $U_id";
+	$query = "SELECT Sender, Message, TimeSt from Messages where Receiver = $U_id";
 	$result = mysqli_query( $GLOBALS['con'],  $query );
 	if (!$result){
 	   die ("Could not query the media table in the database: <br />". mysql_error());
