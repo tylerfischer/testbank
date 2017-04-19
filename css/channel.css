@@ -1,3 +1,6 @@
+/* This file will be used by all created channels. */ 
+
+
 /* You can implement your own css code*/
 body {
 	margin: 0px ; 
@@ -33,11 +36,8 @@ body {
 }
 
 #upload_file{
-	position: relative ; 
-	left: 4% ; 
-}
-#upload_file:visited{
-	color: black ; 
+position: relative ;
+	left: 5%  ; 
 }
 
 #upload_file:hover{
@@ -50,7 +50,10 @@ body {
 	margin: 0 ; 
 	padding-bottom: 2px ; 
 	padding-top: 2px ; 
+    align-content: center; 
 	background-color: burlywood ; 
+
+	
 }
 ul {
 	position: relative; 
@@ -155,7 +158,7 @@ h5 {
 
 #log_out_btn {
 	position: relative ; 
-	left: 22% ;
+	left: 36% ;
 	width: auto;
 	align-items: left;
 	padding: 15px 20px;

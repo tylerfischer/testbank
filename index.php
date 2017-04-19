@@ -37,7 +37,7 @@
 </div>
 
 <div id=footer> <!-- Footer content -->
-	<p>Landon Bagley | Anthony Ferraro | Tyler Fischer<br>Clemson University</p>
+	<p>Landon Bagley | Tyler Fischer<br>Clemson University</p>
 </div>
 </body>
 </html>

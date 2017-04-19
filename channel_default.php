@@ -1,7 +1,11 @@
+<!-- This file is used as a template when users create their own channel. The contents of this 
+	file will be customized to display that user's content. -->  
+
+
 <!DOCTYPE HTML">
 <?php
 	session_start();
-	include_once "function.php";
+	include_once "../function.php";
 	
 	# If you are not logged in, Get out of here! # This needs to be changed to restrict some functionality. 
 	if (!isset($_SESSION['loggedin'])) {
@@ -14,9 +18,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Media Browse</title>
 
-<link rel="stylesheet" type="text/css" href="css/browse.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/channel.css" /> 
 
-<script type="text/javascript" src="js/jquery-latest.pack.js"></script>
+<script type="text/javascript" src="../js/jquery-latest.pack.js"></script>
 <script type="text/javascript">
 	
 function saveDownload(id)
@@ -33,50 +37,42 @@ function saveDownload(id)
 </head>
 
 <body>
+<!-- This PHP code figures out whose channel we are viewing by evaluating the URL. -->
+<?php 
+	$path = $_SERVER['PHP_SELF'] ;
+	$channel_id = basename($path, ".php" ) ;
+	$channel_file = basename($path) ; 
+	//echo $channel_id ;  // Will be in a format "<username>.php" 
 
+?> 
 <div id="welcome">
-<h5>Welcome <?php echo $_SESSION['username'];?></h5>
+<h5><?php echo $channel_id?>'s Channel</h5>
 </div>
 <nav class="navigation">
-					<button class="button" id="upload_file" onclick="upload_file()" >Upload File</button>
+	
+					<button class="button" id="uploadFile" onclick="upload_file()" >Upload File</button>
 					<button class="button" id="acct_btn">Edit Your (<?php echo $_SESSION['username']?>) Account</button>
 		
-		<form name="channelForm" id="channelForm" action="browse.php" method="post"> 
-			<input name="channelBtn" id="channel_btn" type="submit"  value="My Channel">	
-		</form>
-		
-		<form name="logoutForm" id="logoutForm" action="browse.php" method="post"> 
+		<form name="logoutForm" id="logoutForm" action="<?php echo $channel_file?>" method="post"> 
 			<input name="logoutBtn" id="log_out_btn" type="submit"  value="Log Out <?php echo $_SESSION['username'] ?> ">	
 		</form>
 	
 </nav>
 
-
 <script> 
 	function upload_file () {
 		console.info("Clicked Upload File Button ") ; 
-		window.location.replace("media_upload.php") ; 
+		window.location.replace("../media_upload.php") ; 
 	}
 	
 
-</script>
-<!-- The following PHP code is used for taking the user to their channel.php -->  	
-		<?php 
-			if(isset($_POST['channelBtn'])){
-				$mychannel = check_channel_exists(); 
-				header("Location: $mychannel"); 
-			}
-		?>
-
-<!-- The following PHP code is used to Update Account Profile --> 
-
-
+</script> 
 <!-- The following PHP code is used for logging out the user and return to index.php -->  	
 		<?php 
 			if(isset($_POST['logoutBtn'])){
 				$_SESSION['username'] = NULL ;
 				$_SESSION['loggedin'] = NULL ; 
-				header("Location: index.php"); 
+				header("Location: ../index.php"); 
 			}
 		?>
 	
@@ -109,7 +105,7 @@ function saveDownload(id)
 		<span id="acct_prompt_close" class="close">&times;</span>
 		<h4>Account Settings</h4>
 		<!-- Account (Update) Settings Form --> 
-  		<form id="acct_form" method="post" action="browse.php" > 
+  		<form id="acct_form" method="post" action="<?php echo $channel_file ?> " > 
 		
 		Name:<input id="profile_name" name="profile_name" type="text" class="text" value="<?php echo $acct_info[1]?>" >
         <br/> 
@@ -155,18 +151,18 @@ function saveDownload(id)
 ?>
 </div>
 <br/><br/>
-<?php # Loads all the media available. 
-	$result = load_media() ; 
+<?php # Loads all channel media available. 
+	$result = load_mychannel_media($channel_id) ; 
 ?>
 	<h2 id="category_header"> Browse by Category </h2>
 	<div id="cat_div"> 
 	<?php 
-		$categories = categorized_media( ) ; 
+		$categories = categorized_mychannel_media($channel_id ) ; 
 		while ($result_row = mysqli_fetch_row($categories)) 
 			{ 
 				$category = $result_row[4]; 
 				
-		?> <form class="cat_form" method="get" action="browse.php"> 
+		?> <form class="cat_form" method="get" action="<?php echo $channel_file ?> "> 
 		<input id="cat_input" onClick="cat() ;"  name="category" type="submit" class="button" value="<?php echo $category ?>" /> 
 		 <?php
 			}
@@ -190,13 +186,13 @@ function saveDownload(id)
 	
   	<div id="keyword_div"> 
   
-    <form id="search_form" method="get" action="browse.php" > 
+    <form id="search_form" method="get" action="<?php echo $channel_file ?> " > 
     	<input class="text" name="keyword" type="text" id="search_box">
     	<input type="submit" > 
 	</form>
 	<?php 
 		if ( isset($_GET['keyword'])) {
-			$result = find_media ($_GET['keyword'] ) ; 
+			$result = find_channel_media ($_GET['keyword'] , $channel_id ) ; 
 		}
 	?>
 	
@@ -205,12 +201,12 @@ function saveDownload(id)
 		var clear_button = document.getElementById('clear_btn') ; 
 		clear_button.onclick = function(){
 		// Redirects the page back to the default browse.php page. 
-		window.location.replace("browse.php") ;
+		window.location.replace("<?php echo $channel_file ?>") ;
 	}	
 	</script> 
   </div>
    
-    <h2 id="table_header">All Media</h2>
+    <h2 id="table_header"><?php echo $channel_id?>'s Uploaded Media</h2>
     <table id="top_row" width="50%" cellpadding="5" cellspacing="10">
 	<tr valign="top">
 	<td>Media ID</td><td>View File </td><td>Download file</td>
@@ -238,7 +234,7 @@ function saveDownload(id)
 							return ; 
 							}
 						</script>            	            
-            	            <a href="media.php?id=<?php echo $mediaid;?>"><?php echo $filename;?></a>
+            	            <a href="../media.php?id=<?php echo $mediaid;?>"><?php echo $filename;?></a>
                         </td>
                         <td>
             	            <a href="<?php echo $filenpath;?>" target="_blank" onclick="javascript:saveDownload(<?php echo $result_row[2];?>);" download> Download</a> 
