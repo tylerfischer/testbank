@@ -178,6 +178,16 @@ function load_comments($id) {
 	return $result ;
 }
 
+
+function load_comments($U_id) {
+	$query = "SELECT Sender, Message, TimeSt from Messages where receiver = $U_id";
+	$result = mysqli_query( $GLOBALS['con'],  $query );
+	if (!$result){
+	   die ("Could not query the media table in the database: <br />". mysql_error());
+	}
+	return $result ;
+}
+
 function view_media() {
 	echo "In view media! " ;
 	if(isset($_GET['id'])) {

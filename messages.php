@@ -48,26 +48,7 @@
 
 
 <!-- The following PHP code is used to Update Account Profile -->
-<?php
-	# The following is the prompt for Accessing / Updating Account Information
-	$acct_info = get_user_info($_SESSION['username']) ;
 
-	if(isset($_POST['profile_name'])){
-		$post_name = $_POST['profile_name'] ;
-		update_profile($_POST['profile_name'], "name" ) ;
-		unset($_POST['profile_name']) ;
-	}
-	if(isset($_POST['pw'])){
-		$post_pass = $_POST['pw'] ;
-		update_profile($_POST['pw'], "pass" ) ;
-		unset($_POST['pw']) ;
-	}
-	if(isset($_POST['emails'])){
-		$post_email = $_POST['emails'] ;
-		update_profile($_POST['emails'], "email" ) ;
-		unset($_POST['emails']) ;
-}
-?>
 <div id="acct_prompt" class="prompt">
 
 	<div id="acct_prompt_content">
@@ -120,50 +101,42 @@
 ?>
 </div>
 <br/><br/>
-<?php # Loads all the media available.
-	$result = load_media() ;
+<?php # Loads all the messages.
+ $result = load_comments($_SESSION['username']) ;//change to user id
 ?>
 
-    <h2 id="table_header">Uploaded Media</h2>
     <table id="top_row" width="50%" cellpadding="5" cellspacing="10">
-	<tr valign="top">
-	<td>Media ID</td><td>View File </td><td>Download file</td>
-	</tr>
+ <tr valign="top">
+ <td>Sender</td><td>Message</td><td>Timestamp</td>
+ </tr>
 
-	</table>
-	<table width="50%" cellpadding="5" cellspacing="10" border="2" bordercolor="#895803">
-		<?php
-			while ($result_row = mysqli_fetch_row($result)) //filename, username, type, mediaid, path
-			{
-				$mediaid = $result_row[0]; // was 3
-				$filename = $result_row[1]; // was 0
-				$filenpath = $result_row[2]; // was 4   // This seems correct!
-		?>
+ </table>
+ <table width="50%" cellpadding="5" cellspacing="10" border="2" bordercolor="#895803">
+   <?php
+     while ($result_row = mysqli_fetch_row($result)) //filename, _SESSION['username'], type, mediaid, path
+     {
+       $sender = $result_row[0]; // was 3
+       $message = $result_row[1]; // was 0
+       $time = $result_row[2]; // was 4   // This seems correct!
+   ?>
     <tr valign="top">
-					<td>
-							<?php
-								echo $mediaid ;
-							?>
-					</td>
-		      <td>
-		      	<script>
-							function view_media(var id) {
-								console.info("The id is " + id ) ;
-								return ;
-							}
-						</script>
-		        <a href="media.php?id=<?php echo $mediaid;?>"><?php echo $filename;?></a>
-		      </td>
-		      <td>
-		          <a href="<?php echo $filenpath;?>" target="_blank" onclick="javascript:saveDownload(<?php echo $result_row[2];?>);" download> Download</a>
-					</td>
-		</tr>
+         <td>
+             <?php
+               echo $sender;
+             ?>
+         </td>
+         <td>
+           <?php echo $message;?>
+         </td>
+         <td>
+           <?php echo $time;?>
+         </td>
+   </tr>
     <?php
-			}
-		?>
-	</table>
+     }
+   ?>
+ </table>
    </div>
-
 
 </body>
 </html>
