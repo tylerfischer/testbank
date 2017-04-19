@@ -43,6 +43,42 @@ if(isset($_GET['id'])) {
 	else //view movie
 	{
 ?>
+<!--Message send prompt-->
+<div id="msg_prompt" class="prompt">
+
+	<div id="msg_prompt_content">
+		<span id="msg_prompt_close" class="close">&times;</span>
+		<h4>Send a message to</h4>
+		<!-- Account (Update) Settings Form -->
+  		<form id="msg_form" method="post" action="message_process.php" >
+///////WHERE I STOPPED CHANGING
+		Message: <input id="pw" name="pw" type="password" class="text" value="<?php echo $acct_info[3]?>">
+       	<br/>
+       	<br/>
+	      	<input name="submit" type="submit" autofocus class="submit" value="Send">
+  </form>
+
+	</div>
+</div>
+<script>
+	var acct_prompt1 = document.getElementById('acct_prompt') ;
+	var acct_prompt_button = document.getElementById('acct_btn') ;
+	var acct_prompt_close1 = document.getElementById('acct_prompt_close');
+
+	acct_prompt_button.onclick = function(){
+		console.info("Clicked Acct Button") ;
+		acct_prompt1.style.display = "block" ;
+	}
+	acct_prompt_close1.onclick = function() {
+		console.info("Clicked Close Button") ;
+		acct_prompt1.style.display = "none" ;
+	}
+	window.onclick = function(event){
+		if ( event.target == acct_prompt1 )
+			acct_prompt1.style.display = "none" ;
+	}
+
+</script>
 	<!-- <p>Viewing Video:
 	<?php echo $result_row[3].$result_row[1];?></p> -->
 	<p>Viewing Video:<?php echo $result_row[2];?></p> <!-- was 4 -->

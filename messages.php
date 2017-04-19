@@ -29,7 +29,7 @@
 
 					<button class="button" id="acct_btn">My Account</button>
 					<a id="upload_file" href='media_upload.php'  style="color:#FF9900;">Upload File</a>
-					<a id="view_messages" href='messages.php'  style="color:#FF9900;">Inbox</a>
+					<a id="view_messages" href='browse.php'  style="color:#FF9900;">Browse</a>
 
 		<form name="logoutForm" id="logoutForm" action="browse.php" method="post">
 			<input name="logoutBtn" id="log_out_btn" type="submit"  value="Log Out">
