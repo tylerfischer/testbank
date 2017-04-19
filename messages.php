@@ -14,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Media Browse</title>
 
-<link rel="stylesheet" type="text/css" href="css/browse.css" />
+<link rel="stylesheet" type="text/css" href="css/messages.css" />
 
 <script type="text/javascript" src="js/jquery-latest.pack.js"></script>
 
@@ -26,13 +26,19 @@
 <h5>Here are your messages, <?php echo $_SESSION['username'];?></h5>
 </div>
 <nav class="navigation">
+					<button class="button" id="upload_file" onclick="upload_file()" >Upload File</button>
+					<button class="button" id="acct_btn">Edit Your (<?php echo $_SESSION['username']?>) Account</button>
 
-					<button class="button" id="acct_btn">My Account</button>
-					<a id="upload_file" href='media_upload.php'  style="color:#FF9900;">Upload File</a>
-					<a id="view_messages" href='browse.php'  style="color:#FF9900;">Browse</a>
+		<form name="channelForm" id="channelForm" action="browse.php" method="post">
+			<input name="channelBtn" id="channel_btn" type="submit"  value="My Channel">
+		</form>
 
 		<form name="logoutForm" id="logoutForm" action="browse.php" method="post">
-			<input name="logoutBtn" id="log_out_btn" type="submit"  value="Log Out">
+			<input name="logoutBtn" id="log_out_btn" type="submit"  value="Log Out <?php echo $_SESSION['username'] ?> ">
+		</form>
+
+		<form name="inboxForm" id="inboxForm" action="messages.php" method="post">
+			<input name="inbox_btn" id="inbox_btn" type="submit" value="inbox">
 		</form>
 
 </nav>
