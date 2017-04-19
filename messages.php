@@ -102,7 +102,7 @@
 </div>
 <br/><br/>
 <?php # Loads all the messages.
- $result = load_comments($_SESSION['username']) ;//change to user id
+ $result = load_messages($_SESSION['username']) ;//change to user id
 ?>
 
     <table id="top_row" width="50%" cellpadding="5" cellspacing="10">
