@@ -113,6 +113,31 @@ li{
 	position: relative ;
 	left: 30%  ;
 }
+#msg_prompt{
+	position: fixed ;
+	z-index:  1 ;
+	display:  none ;
+	left: 0 ;
+	top: 0 ;
+	width: 100% ;
+	height: 100% ;
+	overflow: auto ;
+	background-color: rgb(137, 88, 3, 0.5) ;
+	padding-top:100px ;
+}
+
+#msg_prompt_content{
+	background-color: antiquewhite ;
+	margin: 10% auto ;
+	padding: 25px ;
+	border: 1px groove #895803 ;
+	width: 40% ;
+	font-size: 24px ;
+}
+#msg_btn{
+	position: relative ;
+	left: 30%  ;
+}
 .close{
 	color:brown ;
 	float:right ;

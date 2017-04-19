@@ -61,21 +61,21 @@ if(isset($_GET['id'])) {
 	</div>
 </div>
 <script>
-	var acct_prompt1 = document.getElementById('acct_prompt') ;
-	var acct_prompt_button = document.getElementById('acct_btn') ;
-	var acct_prompt_close1 = document.getElementById('acct_prompt_close');
+	var msg_prompt1 = document.getElementById('msg_prompt') ;
+	var msg_prompt_button = document.getElementById('msg_btn') ;
+	var msg_prompt_close1 = document.getElementById('msg_prompt_close');
 
-	acct_prompt_button.onclick = function(){
-		console.info("Clicked Acct Button") ;
-		acct_prompt1.style.display = "block" ;
+	msg_prompt_button.onclick = function(){
+		console.info("Clicked msg Button") ;
+		msg_prompt1.style.display = "block" ;
 	}
-	acct_prompt_close1.onclick = function() {
+	msg_prompt_close1.onclick = function() {
 		console.info("Clicked Close Button") ;
-		acct_prompt1.style.display = "none" ;
+		msg_prompt1.style.display = "none" ;
 	}
 	window.onclick = function(event){
 		if ( event.target == acct_prompt1 )
-			acct_prompt1.style.display = "none" ;
+			msg_prompt1.style.display = "none" ;
 	}
 
 </script>
@@ -149,9 +149,7 @@ echo '<center> Comment Successfully Submitted </center>';
  		?>
      <tr valign="top">
  					<td>
- 							<?php
- 								echo $username;
- 							?>
+						<button class="button" id="msg_btn"><?php echo $username; ?></button>
  					</td>
  		      <td>
  		        <?php echo $comment;?>
