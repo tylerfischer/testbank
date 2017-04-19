@@ -71,7 +71,6 @@ else
 }
 ?>
 
-<h1>WHAT IS THIS</h1>
 <form action="" method ="post">
 	Comment : <textarea name="comment" rows="6" cols="50"></textarea>
 	<input type="submit" name="submit">
@@ -82,8 +81,11 @@ if(isset($_POST["submit"]))
 $comment = $_POST["comment"];
 
 $username = $_SESSION['username'];
-mysql_query("INSERT INTO Comment (Comment_ID, Username, Comment, Media_ID, TimeSt) VALUES (null,'$username','$comment', '$filename', null)");
 
+$insert1 = "INSERT INTO `Comment`(`Comment_ID`,`Username` , `Comment`, `Media_ID`, `TimeSt`) VALUES (DEFAULT, '$username' , '$comment', '$filename', DEFAULT);";
+$queryresult = mysqli_query($GLOBALS['con'] , $insert1)
+		or die("Insert into Media error in media_upload_process.php ". $insert1 . "  ". mysql_error());
+$result="0";
 echo '<center> Comment Successfully Submitted </center>';
 
 }
