@@ -112,7 +112,7 @@ echo '<center> Comment Successfully Submitted </center>';
  		?>
      <tr valign="top">
  					<td>
-						<button class="button" id="msg_btn"><?php echo $username; ?></button>
+						<a href=""><?php echo $username; ?></a>
  					</td>
  		      <td>
  		        <?php echo $comment;?>

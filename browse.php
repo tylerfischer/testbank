@@ -48,7 +48,10 @@ function saveDownload(id)
 		<form name="logoutForm" id="logoutForm" action="browse.php" method="post">
 			<input name="logoutBtn" id="log_out_btn" type="submit"  value="Log Out <?php echo $_SESSION['username'] ?> ">
 		</form>
-		<a id="view_messages" href='messages.php'  style="color:#FF9900;">Inbox</a>
+
+		<form name="inboxForm" id="inboxForm" action="messages.php" method="post">
+			<input name="inbox_btn" id="inbox_btn" type="submit" value="inbox">
+		</form>
 
 </nav>
 
