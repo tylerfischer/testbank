@@ -1,0 +1,95 @@
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0
+}
+.button {
+	width: auto;
+	align-items: left;
+	padding: 15px 20px;
+	border-radius: 4px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	margin: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	color: beige;
+	font-size: 24px;
+	cursor: pointer;
+	text-shadow: 1px 2px #000000;
+	background: rgba(255,255,255,0.5)
+}
+.button:hover {
+	box-shadow: 0 12px 16px 0 rbga(0, 0, 0, 0, .24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+body {
+	background-color: beige;
+	background-image: url(../images/bg/camera_bg.jpg);
+	background-size:contain ; 
+
+}
+
+#login-pane {
+	width: 700px;
+	height: 600px;
+	padding: 3% 0 0;
+	margin: auto;
+}
+#login-bg {
+	background: #4E4545;
+	filter: blur(0.5px);
+	opacity: .6;
+	z-index: 1;
+}
+#login {
+	position: relative;
+	z-index: 2;
+	max-width: 500px;
+	margin: 0 auto 100px;
+	padding: 25px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rbga(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+}
+#footer {
+	position: absolute;
+	padding-bottom: 3;
+	background: #895803;
+	opacity: 0.8;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	color: aliceblue;
+	height: 35px;
+}
+#title{
+	font-size: 75px;
+}
+
+#welcome {
+	padding-top: 55px;
+	color: beige;
+	text-align: center;
+	align-content: center;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	text-shadow: 2px 2px #000000;
+}
+#description{
+	padding-top: 60px ; 
+	margin: auto ; 
+	font-size: 36px ; 
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; 
+	color:white; 
+}
+#instructions{
+	font-stretch: expanded ; 
+	font-size: 20px ; 
+	padding-bottom: 20px ; 
+}
+#register {
+	align-content: center;
+}
+.form {
+	width: auto
+}
