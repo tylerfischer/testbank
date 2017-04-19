@@ -69,13 +69,13 @@ else
 <?php
 }
 ?>
-
+<form action="" method ="post">
+	Comment : <textarea name="comment" rows="6" cols="50"></textarea>
+	<input type="submit" name="submit">
+</form>
 <?php
 if(isset($_POST["submit"]))
 {
-
-$name = $_POST["name"];
-
 $comment = $_POST["comment"];
 
 $username = $_SESSION['username'];
