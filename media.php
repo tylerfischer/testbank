@@ -82,7 +82,7 @@ $comment = $_POST["comment"];
 
 $username = $_SESSION['username'];
 
-$insert1 = "INSERT INTO `Comment`(`Comment_ID`,`Username` , `Comment`, `Media_ID`, `TimeSt`) VALUES (DEFAULT, '$username' , '$comment', '$filename', DEFAULT);";
+$insert1 = "INSERT INTO `Comment`(`Comment_ID`,`Username` , `Comment`, `Media_ID`, `TimeSt`) VALUES (DEFAULT, '$username' , '$comment', '$id', DEFAULT);";
 $queryresult = mysqli_query($GLOBALS['con'] , $insert1)
 		or die("Insert into Media error in media_upload_process.php ". $insert1 . "  ". mysql_error());
 $result="0";
